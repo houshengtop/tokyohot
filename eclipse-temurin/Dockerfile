@@ -1,14 +1,13 @@
-FROM docker.io/bitnami/minideb:bookworm
+FROM docker.io/library/debian:bookworm
 LABEL eclipse-temurin.build.time="20230802" \
-      eclipse-temurin.build.version="bookworm-jdk8u382-b05"
+      eclipse-temurin.build.version="jdk8u382-b05"
 
 ENV JAVA_HOME /opt/java/openjdk
 ENV PATH $JAVA_HOME/bin:$PATH
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 ENV TZ=Asia/Shanghai
 
-RUN apt-get install -y debian-archive-keyring \
-    && apt-get update \
+RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata curl wget ca-certificates fontconfig locales \
     && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
     && locale-gen en_US.UTF-8 \
