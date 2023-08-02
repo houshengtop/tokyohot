@@ -1,4 +1,4 @@
-FROM docker.io/library/debian:bookworm
+FROM debian:bookworm
 LABEL eclipse-temurin.build.time="20230802" \
       eclipse-temurin.build.version="jdk8u382-b05"
 
